@@ -1,2 +1,2 @@
-exports.stream_url = "https://github.com/jmwohl/OpenFrame-Node/...";
+exports.stream_url = "https://raw.githubusercontent.com/jmwohl/OpenFrame-Node/master/data/users/jon.json";
 

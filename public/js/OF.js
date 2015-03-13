@@ -21,7 +21,7 @@ var OF = (function($, OF_CONF) {
 			'background-image': 'url("'+OF_CONF.image_url+'")'
 		});
 
-		setTimeout(window.location.reload, _options.interval);
+		setTimeout(window.location.reload.bind(window.location), _options.interval);
 	}
 
 	// function _loadStream(stream_url) {

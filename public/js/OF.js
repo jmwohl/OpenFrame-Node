@@ -24,50 +24,50 @@ var OF = (function($, OF_CONF) {
 		setTimeout(window.location.reload, _options.interval);
 	}
 
-	function _loadStream(stream_url) {
-		return $.getJSON(stream_url);
-	}
+	// function _loadStream(stream_url) {
+	// 	return $.getJSON(stream_url);
+	// }
 
-	function _startStream(stream) {
-		console.log('_startStream', stream.name);
-		clearInterval(_timer);
-		_timer = setInterval(_displayNextItem, _options.interval);
-		_displayNextItem();
+	// function _startStream(stream) {
+	// 	console.log('_startStream', stream.name);
+	// 	clearInterval(_timer);
+	// 	_timer = setInterval(_displayNextItem, _options.interval);
+	// 	_displayNextItem();
 
-		// _displayContent(_curItemIndex);
-	}
+	// 	// _displayContent(_curItemIndex);
+	// }
 
-	function _displayNextItem() {
-		console.log('_displayContent');
+	// function _displayNextItem() {
+	// 	console.log('_displayContent');
 
-		if (_curItemIndex < _totalItems-1) {
-			_curItemIndex += 1;
-		} else {
-			_curItemIndex = 0;
-		}
+	// 	if (_curItemIndex < _totalItems-1) {
+	// 		_curItemIndex += 1;
+	// 	} else {
+	// 		_curItemIndex = 0;
+	// 	}
 
-		var item = _stream.works[_curItemIndex];
+	// 	var item = _stream.works[_curItemIndex];
 
-		$body.css({
-			'background-image': 'url("'+item.url+'")'
-		});
-	}
+	// 	$body.css({
+	// 		'background-image': 'url("'+item.url+'")'
+	// 	});
+	// }
 
 
-	/**
-	 * EVENT HANDLERS
-	 */
+	// /**
+	//  * EVENT HANDLERS
+	//  */
 
-	function _handleStreamLoaded(resp) {
-		console.log('_handleStreamLoaded', resp);
-		_stream = resp;
-		_totalItems = _stream.works.length;
-		_startStream(_stream);
-	}
+	// function _handleStreamLoaded(resp) {
+	// 	console.log('_handleStreamLoaded', resp);
+	// 	_stream = resp;
+	// 	_totalItems = _stream.works.length;
+	// 	_startStream(_stream);
+	// }
 
-	function _handleStreamFailed(err) {
-		console.log(err);
-	}
+	// function _handleStreamFailed(err) {
+	// 	console.log(err);
+	// }
 
 	self.init = _init;
 	return self;

@@ -17,7 +17,7 @@ function _fetchStream(url) {
         if (!error && response.statusCode == 200) {
             console.log(body); // Show the HTML for the Google homepage.
             _stream = body;
-            _playStream(_stream);
+            // _playStream(_stream);
         } else {
         	console.log(error);
         }

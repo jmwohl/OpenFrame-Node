@@ -1,4 +1,4 @@
-var OF = (function($, conf) {
+var OF = (function($, OF_CONF) {
 
 	var self = {},
 		_stream = {},
@@ -16,7 +16,7 @@ var OF = (function($, conf) {
 	function _init(opts) {
 		_options = $.extend(_defaults, opts);
 
-		_loadStream(conf.stream_url)
+		_loadStream(OF_CONF.stream_url)
 			.done(_handleStreamLoaded)
 			.fail(_handleStreamFailed);
 	}
@@ -29,6 +29,7 @@ var OF = (function($, conf) {
 		console.log('_startStream', stream.name);
 		clearInterval(_timer);
 		_timer = setInterval(_displayNextItem, _options.interval);
+		_displayNextItem();
 
 		// _displayContent(_curItemIndex);
 	}

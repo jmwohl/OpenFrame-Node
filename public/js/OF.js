@@ -3,8 +3,9 @@ var OF = (function($, OF_CONF) {
 	var self = {},
 		_stream = {},
 		_options = {},
+		_secondsPerMinute = _minutesPerHours = 60,
 		_defaults = {
-			interval: 5000
+			interval: 10 * _secondsPerMinute * _minutesPerHours
 		},
 		_timer = null,
 		_curItemIndex = 0,
@@ -16,9 +17,11 @@ var OF = (function($, OF_CONF) {
 	function _init(opts) {
 		_options = $.extend(_defaults, opts);
 
-		_loadStream(OF_CONF.stream_url)
-			.done(_handleStreamLoaded)
-			.fail(_handleStreamFailed);
+		$body.css({
+			'background-image': 'url("'+OF_CONF.image_url+'")'
+		});
+
+		setTimeout(window.location.reload, _options.interval);
 	}
 
 	function _loadStream(stream_url) {
